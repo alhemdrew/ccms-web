@@ -1,13 +1,14 @@
+import { asset } from '../utils/assets';
 import images from '../data/images';
 import { pageSeo, Seo } from '../seo/seo';
 
 const dailyMoments = [
-  { title: 'Morning arrival', text: 'Warm welcomes, secure routines and a true sense of belonging from the very first step in.', image: '/images/school/IMG_9838.jpg' },
-  { title: 'Learning through play', text: 'Discovery, movement and curiosity shape the rhythm of the day.', image: '/images/they%20explore.PNG' },
-  { title: 'Creative expression', text: 'Art, making and storytelling build identity, confidence and joy.', image: '/images/art/the-cuddles-experience.png' },
-  { title: 'Community connection', text: 'Shared stories, kindness and responsibility become everyday habits.', image: '/images/students/ccms-kids.png' },
-  { title: 'School pride', text: 'Students connect with their environment, their teachers and each other with confidence.', image: '/images/campus/sch_build.jpeg' },
-  { title: 'Ideas in motion', text: 'A vibrant culture of questioning and building is present in every classroom moment.', image: '/images/coding/coding' },
+  { title: 'Morning arrival', text: 'Warm welcomes, secure routines and a true sense of belonging from the very first step in.', image: asset('/images/school/IMG_9838.jpg') },
+  { title: 'Learning through play', text: 'Discovery, movement and curiosity shape the rhythm of the day.', image: asset('/images/they%20explore.PNG') },
+  { title: 'Creative expression', text: 'Art, making and storytelling build identity, confidence and joy.', image: asset('/images/art/the-cuddles-experience.png') },
+  { title: 'Community connection', text: 'Shared stories, kindness and responsibility become everyday habits.', image: asset('/images/students/ccms-kids.png') },
+  { title: 'School pride', text: 'Students connect with their environment, their teachers and each other with confidence.', image: asset('/images/campus/sch_build.jpeg') },
+  { title: 'Ideas in motion', text: 'A vibrant culture of questioning and building is present in every classroom moment.', image: asset('/images/coding/coding') },
 ];
 
 export function LifeAtCuddlesPage() {

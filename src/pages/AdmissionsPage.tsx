@@ -1,3 +1,4 @@
+import { asset } from '../utils/assets';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { pageSeo, Seo } from '../seo/seo';
@@ -54,7 +55,7 @@ export function AdmissionsPage() {
       <section className="section-spacing" data-reveal>
         <div className="container story-spotlight-grid">
           <div className="story-main-image" data-reveal>
-            <img src="/images/they explore.PNG" alt="Students exploring, learning and creating together" />
+            <img src={asset('/images/they explore.PNG')} alt="Students exploring, learning and creating together" />
           </div>
           <div className="story-main-copy" data-reveal>
             <p className="eyebrow">Family-first process</p>
@@ -133,7 +134,7 @@ export function AdmissionsPage() {
           </div>
           <div className="admissions-cta-image" data-reveal>
             <div className="about-circle-badge">
-              <img src="/images/students/circle.png" alt="CCMS identity circle artwork" />
+              <img src={asset('/images/students/circle.png')} alt="CCMS identity circle artwork" />
             </div>
           </div>
         </div>

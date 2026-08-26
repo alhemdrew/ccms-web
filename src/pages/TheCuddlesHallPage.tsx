@@ -1,3 +1,4 @@
+import { asset } from '../utils/assets';
 import { pageSeo, Seo } from '../seo/seo';
 
 export function TheCuddlesHallPage() {
@@ -9,7 +10,7 @@ export function TheCuddlesHallPage() {
         <div className="container page-intro-grid">
           <div>
             <p className="eyebrow">The Cuddles Hall</p>
-            <img src="/images/logo/tch.png" alt="The Cuddles Hall logo" className="tch-logo" />
+            <img src={asset('/images/logo/tch.png')} alt="The Cuddles Hall logo" className="tch-logo" />
             <h1>A next-stage learning environment for <span className="spring-accent">deeper</span> thinking and stronger identity.</h1>
           </div>
           <p>

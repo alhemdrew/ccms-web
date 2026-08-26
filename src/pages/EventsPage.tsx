@@ -1,3 +1,4 @@
+import { asset } from '../utils/assets';
 import { useMemo, useState } from 'react';
 import { pageSeo, Seo } from '../seo/seo';
 
@@ -7,42 +8,42 @@ const eventData = [
     type: 'Art',
     text: 'A showcase of imagination, craft and student expression across the school community.',
     badge: 'School event',
-    image: '/images/art/the-cuddles-experience.png',
+    image: asset('/images/art/the-cuddles-experience.png'),
   },
   {
     title: 'Student Showcase',
     type: 'Community',
     text: 'Families and friends gather to celebrate growth, creativity and the joy of learning together.',
     badge: 'Community',
-    image: '/images/school/IMG_9838.jpg',
+    image: asset('/images/school/IMG_9838.jpg'),
   },
   {
     title: 'Coding Event',
     type: 'Technology',
     text: 'Practical technology experiences that help students think, create and problem-solve with confidence.',
     badge: 'STEM',
-    image: '/images/coding/coding',
+    image: asset('/images/coding/coding'),
   },
   {
     title: 'Presentation & Leadership',
     type: 'Entrepreneurship',
     text: 'Students present ideas, develop public voice and grow into confident young leaders.',
     badge: 'Leadership',
-    image: '/images/They%20present.png',
+    image: asset('/images/They%20present.png'),
   },
   {
     title: 'Campus Life',
     type: 'Community',
     text: 'The rhythm of school life is built on belonging, shared purpose and everyday pride.',
     badge: 'Campus',
-    image: '/images/campus/sch_build.jpeg',
+    image: asset('/images/campus/sch_build.jpeg'),
   },
   {
     title: 'Creative Discovery',
     type: 'Art',
     text: 'Students explore ideas with materials, stories and imagination that make learning vivid.',
     badge: 'Creative',
-    image: '/images/they%20create.png',
+    image: asset('/images/they%20create.png'),
   },
 ];
 

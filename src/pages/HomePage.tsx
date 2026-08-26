@@ -1,3 +1,4 @@
+import { asset } from '../utils/assets';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { featureCards, galleryStory, journeyStages, schoolProgrammes } from '../data/siteData';
@@ -282,7 +283,7 @@ export function HomePage() {
               <Link to="/achievements" className="button button-secondary">Explore their story</Link>
             </div>
             <div className="young-author-preview-image">
-              <img src="/images/authors.jpg" alt="Three young authors from Cuddles" />
+              <img src={asset('/images/authors.jpg')} alt="Three young authors from Cuddles" />
             </div>
           </div>
         </div>

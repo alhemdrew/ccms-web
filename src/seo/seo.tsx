@@ -1,3 +1,4 @@
+import { asset } from '../utils/assets';
 import { useEffect } from 'react';
 
 const SITE_URL = 'https://cuddleschildmindersandschools.com';

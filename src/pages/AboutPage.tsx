@@ -1,3 +1,4 @@
+import { asset } from '../utils/assets';
 import images from '../data/images';
 import { pageSeo, Seo } from '../seo/seo';
 
@@ -68,7 +69,7 @@ export function AboutPage() {
           </div>
 
           <div className="about-circle-badge" data-reveal>
-            <img src="/images/students/circle.png" alt="CCMS children learning together in a creative activity" />
+            <img src={asset('/images/students/circle.png')} alt="CCMS children learning together in a creative activity" />
           </div>
         </div>
       </section>

@@ -1199,9 +1199,9 @@
   z-index: 1;
 }
 
-.gallery-card.story-1 { background-image: linear-gradient(180deg, rgba(11, 23, 33, 0.16), rgba(11, 23, 33, 0.72)), url('/images/gallery/gallery-1.jpg'); }
-.gallery-card.story-2 { background-image: linear-gradient(180deg, rgba(11, 23, 33, 0.16), rgba(11, 23, 33, 0.72)), url('/images/gallery/gallery-2.jpg'); }
-.gallery-card.story-3 { background-image: linear-gradient(180deg, rgba(11, 23, 33, 0.16), rgba(11, 23, 33, 0.72)), url('/images/gallery/gallery-3.jpg'); }
+.gallery-card.story-1 { background-image: linear-gradient(180deg, rgba(11, 23, 33, 0.16), rgba(11, 23, 33, 0.72)); }
+.gallery-card.story-2 { background-image: linear-gradient(180deg, rgba(11, 23, 33, 0.16), rgba(11, 23, 33, 0.72)); }
+.gallery-card.story-3 { background-image: linear-gradient(180deg, rgba(11, 23, 33, 0.16), rgba(11, 23, 33, 0.72)); }
 
 .gallery-card h3 {
   font-size: clamp(1.8rem, 2.8vw, 2.6rem);

@@ -1,3 +1,4 @@
+import { asset } from '../utils/assets';
 import { achievements } from '../data/siteData';
 import images from '../data/images';
 import { Link } from 'react-router-dom';
@@ -17,7 +18,7 @@ export function AchievementsPage() {
   const viewerRef = useRef<HTMLDivElement | null>(null);
 
   const activeAchievement = items[index];
-  const achievementSlides = activeAchievement.slides ?? [gallery[index]?.src || '/images/achievements/hackathon.png'];
+  const achievementSlides = activeAchievement.slides ?? [gallery[index]?.src || asset('/images/achievements/hackathon.png')];
   const currentAchievementImage = achievementSlides[achievementSlide % achievementSlides.length];
 
   const prev = () => {
@@ -180,7 +181,7 @@ export function AchievementsPage() {
             </div>
 
             <div className="young-authors-image-wrap">
-              <img src="/images/authors.jpg" alt="Three young authors from Cuddles" />
+              <img src={asset('/images/authors.jpg')} alt="Three young authors from Cuddles" />
               <div className="image-caption">Three young writers from Cuddles.</div>
             </div>
           </div>

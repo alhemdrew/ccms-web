@@ -1,3 +1,4 @@
+import { asset } from '../utils/assets';
 export type NavItem = {
   label: string;
   href: string;
@@ -73,27 +74,27 @@ export const galleryStory = [
   {
     label: 'They explore.',
     title: 'Curiosity meets real-world learning.',
-    image: '/images/they%20explore.PNG',
+    image: asset('/images/they%20explore.PNG'),
   },
   {
     label: 'They question.',
     title: 'Ideas are tested, discussed and refined.',
-    image: '/images/they%20question.png',
+    image: asset('/images/they%20question.png'),
   },
   {
     label: 'They create.',
     title: 'Projects, art and innovation become tangible.',
-    image: '/images/they%20create.png',
+    image: asset('/images/they%20create.png'),
   },
   {
     label: 'They present.',
     title: 'Confidence grows through public speaking and demonstration.',
-    image: '/images/They%20present.png',
+    image: asset('/images/They%20present.png'),
   },
   {
     label: 'They lead.',
     title: 'Children learn to take responsibility and inspire others.',
-    image: '/images/They%20lead.png',
+    image: asset('/images/They%20lead.png'),
   },
 ];
 
@@ -102,25 +103,25 @@ export const achievements = [
     title: 'Abuja Hackathon for AI, IoT & Open Innovation',
     result: '1st Place',
     year: '2026',
-    slides: ['/images/achievements/hackathon.png', '/images/achievements/iot.png'],
+    slides: [asset('/images/achievements/hackathon.png'), asset('/images/achievements/iot.png')],
   },
   {
     title: 'iCode Competition',
     result: '2nd Place',
     year: '2026',
-    slides: ['/images/achievements/icode.png'],
+    slides: [asset('/images/achievements/icode.png')],
   },
   {
     title: 'Nigerian Army Competition/Award',
     result: 'Recognition received',
     year: '2025',
-    slides: ['/images/achievements/military art award.png'],
+    slides: [asset('/images/achievements/military art award.png')],
   },
   {
     title: 'Additional Recognition',
     result: '2nd Place / 3rd Place',
     year: '2025',
-    slides: ['/images/achievements/art award.png', '/images/achievements/iot award.png'],
+    slides: [asset('/images/achievements/art award.png'), asset('/images/achievements/iot award.png')],
   },
 ];
 
