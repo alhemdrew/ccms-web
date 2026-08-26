@@ -1,9 +1,12 @@
 import images from '../data/images';
+import { pageSeo, Seo } from '../seo/seo';
 
 export function AboutPage() {
   return (
-    <div className="page-shell-inner">
-      <section className="page-intro section-maroon">
+    <>
+      <Seo {...pageSeo.about} />
+      <div className="page-shell-inner">
+      <section className="page-intro section-maroon" data-reveal>
         <div className="container page-intro-grid">
           <div>
             <p className="eyebrow">About us</p>
@@ -23,7 +26,7 @@ export function AboutPage() {
         <span className="flourish-line" />
       </div>
 
-      <section className="section-spacing">
+      <section className="section-spacing" data-reveal>
         <div className="container two-column-copy">
           <div>
             <p className="eyebrow">Our philosophy</p>
@@ -40,9 +43,9 @@ export function AboutPage() {
         </div>
       </section>
 
-      <section className="section-spacing">
+      <section className="section-spacing" data-reveal>
         <div className="container mission-vision-wrap">
-          <div className="mission-vision-card mission-card">
+          <div className="mission-vision-card mission-card" data-reveal>
             <p className="eyebrow">Our vision</p>
             <h2>We strive to create a school community where every child, regardless of background, is prepared to become a contemporary role model.</h2>
             <p>
@@ -51,11 +54,11 @@ export function AboutPage() {
             <div className="mission-vision-tag">“Creatively Developing A Whole Child!”</div>
           </div>
 
-          <div className="mission-vision-visual">
+          <div className="mission-vision-visual" data-reveal>
             <img src={images.childmindersScene.src} alt={images.childmindersScene.alt} />
           </div>
 
-          <div className="mission-vision-card mission-card accent">
+          <div className="mission-vision-card mission-card accent" data-reveal>
             <p className="eyebrow">Our mission</p>
             <h2>Through our values, we strive to nurture each child in our care into a healthy, diligent, honest and selfless individual.</h2>
             <p>
@@ -64,13 +67,13 @@ export function AboutPage() {
             <div className="mission-vision-tag">“Creatively Developing A Whole Child!”</div>
           </div>
 
-          <div className="about-circle-badge">
+          <div className="about-circle-badge" data-reveal>
             <img src="/images/students/circle.png" alt="CCMS children learning together in a creative activity" />
           </div>
         </div>
       </section>
 
-      <section className="section-spacing muted-panel">
+      <section className="section-spacing muted-panel" data-reveal>
         <div className="container">
           <div className="section-header center">
             <p className="eyebrow">What guides us</p>
@@ -83,7 +86,7 @@ export function AboutPage() {
               ['Confidence', 'Children are given room to speak, perform, lead and contribute.'],
               ['Excellence', 'High standards are set with care, clarity and deep support.'],
             ].map(([title, text]) => (
-              <article className="info-card" key={title}>
+              <article className="info-card" key={title} data-reveal>
                 <h3>{title}</h3>
                 <p>{text}</p>
               </article>
@@ -92,7 +95,7 @@ export function AboutPage() {
         </div>
       </section>
 
-      <section className="section-spacing">
+      <section className="section-spacing" data-reveal>
         <div className="container">
           <div className="section-header center">
             <p className="eyebrow">Our story</p>
@@ -105,7 +108,7 @@ export function AboutPage() {
               ['Middle school development', 'Independent thinking, project work and richer inquiry-based learning.'],
               ['Leadership preparation', 'Public voice, entrepreneurship and thoughtful contribution to the wider world.'],
             ].map(([title, text]) => (
-              <article key={title} className="timeline-card">
+              <article key={title} className="timeline-card" data-reveal>
                 <span>{title}</span>
                 <p>{text}</p>
               </article>
@@ -113,6 +116,7 @@ export function AboutPage() {
           </div>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   );
 }

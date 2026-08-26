@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react';
+import { pageSeo, Seo } from '../seo/seo';
 
 const eventData = [
   {
@@ -53,8 +54,10 @@ export function EventsPage() {
   }, [filter]);
 
   return (
-    <div className="page-shell-inner">
-      <section className="page-intro section-maroon">
+    <>
+      <Seo {...pageSeo.events} />
+      <div className="page-shell-inner">
+      <section className="page-intro section-maroon" data-reveal>
         <div className="container page-intro-grid">
           <div>
             <p className="eyebrow">Events</p>
@@ -74,9 +77,9 @@ export function EventsPage() {
         <span className="flourish-line" />
       </div>
 
-      <section className="section-spacing">
+      <section className="section-spacing" data-reveal>
         <div className="container">
-          <div className="filter-row" aria-label="Event filters">
+          <div className="filter-row" aria-label="Event filters" data-reveal>
             {['All', 'Art', 'Technology', 'Entrepreneurship', 'Community'].map((value) => (
               <button
                 key={value}
@@ -91,7 +94,7 @@ export function EventsPage() {
 
           <div className="event-grid event-grid-featured">
             {filtered.map((event) => (
-              <article key={event.title} className="event-card">
+              <article key={event.title} className="event-card" data-reveal>
                 <div className="event-image" style={{ backgroundImage: `url(${event.image})` }} />
                 <div className="event-topline">
                   <span className="event-tag">{event.badge}</span>
@@ -104,6 +107,7 @@ export function EventsPage() {
           </div>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   );
 }

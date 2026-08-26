@@ -1,3 +1,5 @@
+import { pageSeo, Seo } from '../seo/seo';
+
 const innovationFeatures = [
   {
     title: 'Design thinking',
@@ -23,8 +25,10 @@ const innovationFeatures = [
 
 export function InnovationPage() {
   return (
-    <div className="page-shell-inner">
-      <section className="page-intro section-maroon">
+    <>
+      <Seo {...pageSeo.innovation} />
+      <div className="page-shell-inner">
+      <section className="page-intro section-maroon" data-reveal>
         <div className="container page-intro-grid">
           <div>
             <p className="eyebrow">Innovation</p>
@@ -44,10 +48,10 @@ export function InnovationPage() {
         <span className="flourish-line" />
       </div>
 
-      <section className="section-spacing">
+      <section className="section-spacing" data-reveal>
         <div className="container">
-          <div className="innovation-page-hero">
-            <div className="innovation-page-copy">
+          <div className="innovation-page-hero" data-reveal>
+            <div className="innovation-page-copy" data-reveal>
               <span className="innovation-status">Currently in development</span>
               <h2>They are not just learning technology.</h2>
               <h3>They are beginning to build the technology they want to see.</h3>
@@ -55,17 +59,17 @@ export function InnovationPage() {
                 A student-led digital space is being imagined and shaped — one where learners can connect, share ideas, collaborate and inspire one another.
               </p>
             </div>
-            <div className="innovation-page-media">
+            <div className="innovation-page-media" data-reveal>
               <img src="/images/they create.png" alt="Students creating tech ideas together" />
             </div>
           </div>
         </div>
       </section>
 
-      <section className="section-spacing">
+      <section className="section-spacing" data-reveal>
         <div className="container value-panel-grid">
           {innovationFeatures.map((item) => (
-            <article className="info-card innovation-info-card" key={item.title}>
+            <article className="info-card innovation-info-card" key={item.title} data-reveal>
               <div className="innovation-thumb" style={{ backgroundImage: `url(${item.image})` }} />
               <h3>{item.title}</h3>
               <p>{item.text}</p>
@@ -73,6 +77,7 @@ export function InnovationPage() {
           ))}
         </div>
       </section>
-    </div>
+      </div>
+    </>
   );
 }

@@ -1,19 +1,42 @@
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { featureCards, galleryStory, journeyStages, schoolProgrammes } from '../data/siteData';
 import images from '../data/images';
+import { pageSeo, Seo } from '../seo/seo';
+
+const heroPhrases = ['thinkers', 'leaders', 'builders'];
 
 export function HomePage() {
+  const [phraseIndex, setPhraseIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      setPhraseIndex((current) => (current + 1) % heroPhrases.length);
+    }, 2400);
+
+    return () => window.clearInterval(timer);
+  }, []);
+
   return (
     <>
+      <Seo {...pageSeo.home} />
       <section className="hero section-spacing">
         <div className="container hero-grid">
-          <div className="hero-copy">
-           
+          <div className="hero-copy" data-reveal>
             <p className="eyebrow hero-kicker">Cuddles</p>
             <h1>
               Raising thinkers.
               <span>Building leaders.</span>
             </h1>
+
+            <div className="hero-writing-wrap" aria-live="polite">
+              <span className="hero-writing-label">We nurture</span>
+              <div className="hero-writing-track">
+                <span className="hero-writing-pencil" aria-hidden="true" />
+                <span key={heroPhrases[phraseIndex]} className="hero-writing-text">{heroPhrases[phraseIndex]}</span>
+              </div>
+            </div>
+
             <p className="lede">A premium early years and school journey where curiosity, character and confidence are developed side by side.</p>
             <div className="hero-actions">
               <Link to="/admissions" className="button button-primary">Explore admissions</Link>
@@ -31,7 +54,7 @@ export function HomePage() {
             </div>
           </div>
 
-          <div className="hero-visual">
+          <div className="hero-visual" data-reveal>
             <div className="image-frame">
               <img
                 src={images.campusBuild.src}
@@ -51,7 +74,7 @@ export function HomePage() {
         </div>
       </section>
 
-      <section className="value-strip section-maroon">
+      <section className="value-strip section-maroon" data-reveal>
         <div className="container strip-grid">
           <div>
             <p className="eyebrow small">Institution</p>
@@ -64,7 +87,7 @@ export function HomePage() {
         </div>
       </section>
 
-      <section className="section-spacing">
+      <section className="section-spacing" data-reveal>
         <div className="container">
           <div className="section-header split-header">
             <div>
@@ -78,7 +101,7 @@ export function HomePage() {
 
           <div className="feature-grid">
             {featureCards.map((item, index) => (
-              <article key={item.title} className="feature-card">
+              <article key={item.title} className="feature-card" data-reveal>
                 <span className="feature-number">0{index + 1}</span>
                 <h3>{item.title}</h3>
                 <p>{item.text}</p>
@@ -88,7 +111,7 @@ export function HomePage() {
         </div>
       </section>
 
-      <section className="section-spacing">
+      <section className="section-spacing" data-reveal>
         <div className="container">
           <div className="section-header center">
             <p className="eyebrow">One school. Two journeys.</p>
@@ -97,7 +120,7 @@ export function HomePage() {
 
           <div className="journey-grid">
             {journeyStages.map((stage, index) => (
-              <article className="journey-card" key={stage.title}>
+              <article className="journey-card" key={stage.title} data-reveal>
                 <span className="journey-index">0{index + 1}</span>
                 <h3>{stage.title}</h3>
                 <p className="journey-subtitle">{stage.subtitle}</p>
@@ -108,7 +131,7 @@ export function HomePage() {
         </div>
       </section>
 
-      <section className="story-spotlight section-spacing section-maroon">
+      <section className="story-spotlight section-spacing section-maroon" data-reveal>
         <div className="container story-spotlight-grid">
           <div className="story-main-image">
             <img src={images.storyMain.src} alt={images.storyMain.alt} data-remote={images.storyMain.remote} />
@@ -133,6 +156,43 @@ export function HomePage() {
                 <span>learning</span>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section-spacing section-maroon">
+        <div className="container">
+          <div className="section-header split-header">
+            <div>
+              <p className="eyebrow">Why families choose us</p>
+              <h2>More than a school — a steady, confident pathway for childhood.</h2>
+            </div>
+            <p>
+              We pair warmth with academic ambition, creating a culture where children feel seen, challenged and genuinely supported.
+            </p>
+          </div>
+
+          <div className="feature-grid">
+            <article className="feature-card">
+              <span className="feature-number">01</span>
+              <h3>Warmth</h3>
+              <p>Children feel safe, known and confident enough to explore, ask questions and make mistakes with courage.</p>
+            </article>
+            <article className="feature-card">
+              <span className="feature-number">02</span>
+              <h3>Rigour</h3>
+              <p>Structured learning builds strong foundations in literacy, numeracy, communication and independent thinking.</p>
+            </article>
+            <article className="feature-card">
+              <span className="feature-number">03</span>
+              <h3>Purpose</h3>
+              <p>Students are encouraged to connect learning to real life, leadership and the communities they will shape.</p>
+            </article>
+            <article className="feature-card">
+              <span className="feature-number">04</span>
+              <h3>Belonging</h3>
+              <p>Every child is part of a larger story of care, excellence and meaningful growth across the school journey.</p>
+            </article>
           </div>
         </div>
       </section>

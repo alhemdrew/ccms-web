@@ -1,9 +1,12 @@
 import images from '../data/images';
+import { pageSeo, Seo } from '../seo/seo';
 
 export function ChildmindersPage() {
   return (
-    <div className="page-shell-inner">
-      <section className="page-intro section-maroon">
+    <>
+      <Seo {...pageSeo.childminders} />
+      <div className="page-shell-inner">
+      <section className="page-intro section-maroon" data-reveal>
         <div className="container page-intro-grid">
           <div>
             <p className="eyebrow">Cuddles Childminders School</p>
@@ -23,12 +26,12 @@ export function ChildmindersPage() {
         <span className="flourish-line" />
       </div>
 
-      <section className="section-spacing">
+      <section className="section-spacing" data-reveal>
         <div className="container story-spotlight-grid">
-          <div className="story-main-image">
+          <div className="story-main-image" data-reveal>
             <img src={images.childmindersScene.src} alt={images.childmindersScene.alt} data-remote={images.childmindersScene.remote} />
           </div>
-          <div className="story-main-copy">
+          <div className="story-main-copy" data-reveal>
             <p className="eyebrow">Early foundations</p>
             <h2>Confidence grows from stability, care and joyful learning.</h2>
             <p>
@@ -52,7 +55,7 @@ export function ChildmindersPage() {
         </div>
       </section>
 
-      <section className="section-spacing">
+      <section className="section-spacing" data-reveal>
         <div className="container">
           <div className="section-header split-header">
             <div>
@@ -70,7 +73,7 @@ export function ChildmindersPage() {
               ['Social development', 'Children learn empathy, friendship, fairness and cooperation through real experience.'],
               ['School readiness', 'We build independence, attention and self-regulation that prepare children for the next stage.'],
             ].map(([title, text]) => (
-              <article className="info-card" key={title}>
+              <article className="info-card" key={title} data-reveal>
                 <h3>{title}</h3>
                 <p>{text}</p>
               </article>
@@ -79,7 +82,7 @@ export function ChildmindersPage() {
         </div>
       </section>
 
-      <section className="section-spacing muted-panel">
+      <section className="section-spacing muted-panel" data-reveal>
         <div className="container">
           <div className="two-column-copy">
             <div>
@@ -97,6 +100,7 @@ export function ChildmindersPage() {
           </div>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   );
 }

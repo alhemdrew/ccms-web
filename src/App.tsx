@@ -1,5 +1,5 @@
 import './styles/App.css';
-import { BrowserRouter, NavLink, Route, Routes, Link } from 'react-router-dom';
+import { BrowserRouter, NavLink, Route, Routes, Link, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { AboutPage } from './pages/AboutPage';
 import { AdmissionsPage } from './pages/AdmissionsPage';
@@ -36,20 +36,19 @@ const mainLinks = [
   { label: 'Contact', href: '/contact' },
 ];
 
-function App() {
-  const [theme, setTheme] = useState<'light' | 'dark'>(() => {
-    const savedTheme = window.localStorage.getItem('ccms-theme');
-    if (savedTheme === 'light' || savedTheme === 'dark') {
-      return savedTheme;
-    }
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-  });
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+function ScrollToTop() {
+  const location = useLocation();
 
   useEffect(() => {
-    document.body.classList.toggle('theme-dark', theme === 'dark');
-    window.localStorage.setItem('ccms-theme', theme);
-  }, [theme]);
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+  }, [location.pathname]);
+
+  return null;
+}
+
+function AppShell() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleEscape = (event: KeyboardEvent) => {
@@ -58,12 +57,45 @@ function App() {
       }
     };
 
+    const toggleHeaderState = () => {
+      const header = document.querySelector('.topbar');
+      if (!header) return;
+      header.classList.toggle('is-scrolled', window.scrollY > 12);
+    };
+
+    const revealItems = document.querySelectorAll<HTMLElement>('[data-reveal]');
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15, rootMargin: '0px 0px -35px 0px' }
+    );
+
+    revealItems.forEach((item, index) => {
+      item.classList.add('reveal-item');
+      item.style.transitionDelay = `${index * 90}ms`;
+      observer.observe(item);
+    });
+
+    toggleHeaderState();
     window.addEventListener('keydown', handleEscape);
-    return () => window.removeEventListener('keydown', handleEscape);
-  }, []);
+    window.addEventListener('scroll', toggleHeaderState, { passive: true });
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('keydown', handleEscape);
+      window.removeEventListener('scroll', toggleHeaderState);
+    };
+  }, [location.pathname]);
 
   return (
-    <BrowserRouter>
+    <>
+      <ScrollToTop />
       <div className="page-shell">
         <header className="topbar">
           <div className="container nav-wrap">
@@ -117,15 +149,6 @@ function App() {
             </nav>
 
             <div className="header-actions">
-              <button
-                type="button"
-                className="theme-toggle"
-                aria-label="Toggle light and dark mode"
-                onClick={() => setTheme((current) => (current === 'light' ? 'dark' : 'light'))}
-              >
-                <span aria-hidden="true">{theme === 'light' ? '☀' : '☾'}</span>
-                {theme === 'light' ? 'Light' : 'Dark'}
-              </button>
               <Link className="button button-primary" to="/contact">
                 Enquire now
               </Link>
@@ -171,15 +194,6 @@ function App() {
               </nav>
 
               <div className="mobile-menu-actions">
-                <button
-                  type="button"
-                  className="theme-toggle mobile-theme-toggle"
-                  aria-label="Toggle light and dark mode"
-                  onClick={() => setTheme((current) => (current === 'light' ? 'dark' : 'light'))}
-                >
-                  <span aria-hidden="true">{theme === 'light' ? '☀' : '☾'}</span>
-                  {theme === 'light' ? 'Light mode' : 'Dark mode'}
-                </button>
                 <Link className="button button-primary mobile-cta" to="/contact" onClick={() => setMobileMenuOpen(false)}>
                   Enquire now
                 </Link>
@@ -206,6 +220,11 @@ function App() {
           </Routes>
         </main>
 
+        <div className="global-contact-connector" aria-label="Quick contact shortcut">
+          <Link to="/contact" className="button button-primary connector-button">Apply now</Link>
+          <a href="tel:07030137246" className="connector-call">Call</a>
+        </div>
+
         <footer className="site-footer">
           <div className="container footer-wrap">
             <div>
@@ -220,6 +239,14 @@ function App() {
           </div>
         </footer>
       </div>
+    </>
+  );
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <AppShell />
     </BrowserRouter>
   );
 }

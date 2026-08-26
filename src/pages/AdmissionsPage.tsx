@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { pageSeo, Seo } from '../seo/seo';
 
 const admissionsStages = {
   creche: {
@@ -27,8 +28,10 @@ export function AdmissionsPage() {
   const current = admissionsStages[activeStage];
 
   return (
-    <div className="page-shell-inner">
-      <section className="page-intro section-maroon">
+    <>
+      <Seo {...pageSeo.admissions} />
+      <div className="page-shell-inner">
+      <section className="page-intro section-maroon" data-reveal>
         <div className="container page-intro-grid">
           <div>
             <p className="eyebrow">Admissions</p>
@@ -48,12 +51,12 @@ export function AdmissionsPage() {
         <span className="flourish-line" />
       </div>
 
-      <section className="section-spacing">
+      <section className="section-spacing" data-reveal>
         <div className="container story-spotlight-grid">
-          <div className="story-main-image">
-            <img src={images.admissionsScene.src} alt={images.admissionsScene.alt} data-remote={images.admissionsScene.remote} />
+          <div className="story-main-image" data-reveal>
+            <img src="/images/they explore.PNG" alt="Students exploring, learning and creating together" />
           </div>
-          <div className="story-main-copy">
+          <div className="story-main-copy" data-reveal>
             <p className="eyebrow">Family-first process</p>
             <h2>Warm guidance and a genuine welcome from day one.</h2>
             <p>
@@ -77,9 +80,9 @@ export function AdmissionsPage() {
         </div>
       </section>
 
-      <section className="section-spacing">
+      <section className="section-spacing" data-reveal>
         <div className="container admissions-stage-builder">
-          <div className="stage-selector" aria-label="Stage selectors">
+          <div className="stage-selector" aria-label="Stage selectors" data-reveal>
             {Object.entries(admissionsStages).map(([key, stage]) => (
               <button
                 key={key}
@@ -92,7 +95,7 @@ export function AdmissionsPage() {
             ))}
           </div>
 
-          <div className="stage-panel" key={activeStage}>
+          <div className="stage-panel" key={activeStage} data-reveal>
             <div>
               <p className="eyebrow">Choose a stage</p>
               <h2>{current.title}</h2>
@@ -102,7 +105,7 @@ export function AdmissionsPage() {
         </div>
       </section>
 
-      <section className="section-spacing muted-panel">
+      <section className="section-spacing muted-panel" data-reveal>
         <div className="container">
           <div className="timeline">
             {[
@@ -111,7 +114,7 @@ export function AdmissionsPage() {
               ['3. Assessment', 'We discuss readiness, routines and how we can support your child’s growth.'],
               ['4. Admission', 'Families receive clear guidance on the next steps, dates and onboarding support.'],
             ].map(([title, text]) => (
-              <article key={title} className="timeline-card">
+              <article key={title} className="timeline-card" data-reveal>
                 <span>{title}</span>
                 <p>{text}</p>
               </article>
@@ -120,21 +123,22 @@ export function AdmissionsPage() {
         </div>
       </section>
 
-      <section className="section-spacing">
+      <section className="section-spacing" data-reveal>
         <div className="container admissions-cta">
-          <div className="admissions-cta-copy">
+          <div className="admissions-cta-copy" data-reveal>
             <p className="eyebrow">Ready to start?</p>
             <h2>Get personalised guidance for your child's next step.</h2>
             <p>Speak with our admissions team to arrange a tour, ask questions or begin the application process.</p>
             <Link to="/contact" className="button button-primary">Contact admissions</Link>
           </div>
-          <div className="admissions-cta-image">
+          <div className="admissions-cta-image" data-reveal>
             <div className="about-circle-badge">
               <img src="/images/students/circle.png" alt="CCMS identity circle artwork" />
             </div>
           </div>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   );
 }

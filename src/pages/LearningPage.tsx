@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import images from '../data/images';
+import { pageSeo, Seo } from '../seo/seo';
 
 const learningModes = {
   think: {
@@ -34,8 +35,10 @@ export function LearningPage() {
   const current = learningModes[active];
 
   return (
-    <div className="page-shell-inner">
-      <section className="page-intro section-maroon">
+    <>
+      <Seo {...pageSeo.learning} />
+      <div className="page-shell-inner">
+      <section className="page-intro section-maroon" data-reveal>
         <div className="container page-intro-grid">
           <div>
             <p className="eyebrow">Learning</p>
@@ -55,9 +58,9 @@ export function LearningPage() {
         <span className="flourish-line" />
       </div>
 
-      <section className="section-spacing">
+      <section className="section-spacing" data-reveal>
         <div className="container learning-lab">
-          <div className="learning-lab-controls" aria-label="Learning focus selector">
+          <div className="learning-lab-controls" aria-label="Learning focus selector" data-reveal>
             {Object.entries(learningModes).map(([key, mode]) => (
               <button
                 key={key}
@@ -70,7 +73,7 @@ export function LearningPage() {
             ))}
           </div>
 
-          <div className="learning-lab-panel" key={active}>
+          <div className="learning-lab-panel" key={active} data-reveal>
             <div className="learning-lab-copy">
               <p className="eyebrow">How we teach</p>
               <h2>{current.heading}</h2>
@@ -104,7 +107,7 @@ export function LearningPage() {
               ['Creativity & design', 'Art, imagination and experimentation help children learn how to generate ideas.'],
               ['Character development', 'Kindness, responsibility and resilience are woven into daily routines and teaching.'],
             ].map(([title, text]) => (
-              <article className="info-card" key={title}>
+              <article className="info-card" key={title} data-reveal>
                 <h3>{title}</h3>
                 <p>{text}</p>
               </article>
@@ -113,7 +116,7 @@ export function LearningPage() {
         </div>
       </section>
 
-      <section className="section-spacing">
+      <section className="section-spacing" data-reveal>
         <div className="container">
           <div className="timeline">
             {[
@@ -122,7 +125,7 @@ export function LearningPage() {
               ['Junior secondary', 'Project work, inquiry and leadership become more central to the experience.'],
               ['Senior preparation', 'Students engage with greater autonomy, complex ideas and public-facing work.'],
             ].map(([title, text]) => (
-              <article key={title} className="timeline-card">
+              <article key={title} className="timeline-card" data-reveal>
                 <span>{title}</span>
                 <p>{text}</p>
               </article>
@@ -130,6 +133,7 @@ export function LearningPage() {
           </div>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   );
 }

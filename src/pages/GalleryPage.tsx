@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react';
+import { pageSeo, Seo } from '../seo/seo';
 import images from '../data/images';
 
 const galleryItems = [
@@ -24,8 +25,10 @@ export function GalleryPage() {
   }, [filter]);
 
   return (
-    <div className="page-shell-inner">
-      <section className="page-intro section-maroon">
+    <>
+      <Seo {...pageSeo.gallery} />
+      <div className="page-shell-inner">
+      <section className="page-intro section-maroon" data-reveal>
         <div className="container page-intro-grid">
           <div>
             <p className="eyebrow">Gallery</p>
@@ -45,9 +48,9 @@ export function GalleryPage() {
         <span className="flourish-line" />
       </div>
 
-      <section className="section-spacing">
+      <section className="section-spacing" data-reveal>
         <div className="container gallery-showcase">
-          <div className="gallery-featured">
+          <div className="gallery-featured" data-reveal>
             <img src={images.codingFeature.src} alt={images.codingFeature.alt} data-remote={images.codingFeature.remote} />
           </div>
           <div className="gallery-featured-small">
@@ -59,7 +62,7 @@ export function GalleryPage() {
         </div>
       </section>
 
-      <section className="section-spacing">
+      <section className="section-spacing" data-reveal>
         <div className="container">
           <div className="filter-row" aria-label="Gallery filters">
             {['All', 'Classroom', 'Innovation', 'Art', 'Events', 'Leadership', 'Community', 'Play', 'Creativity', 'Growth', 'Technology'].map((value) => (
@@ -79,6 +82,7 @@ export function GalleryPage() {
               <article
                 key={item.title}
                 className={`gallery-card ${item.tone}`}
+                data-reveal
                 style={{ backgroundImage: `linear-gradient(180deg, rgba(11, 23, 33, 0.16), rgba(11, 23, 33, 0.72)), url(${item.image})` }}
               >
                 <p className="eyebrow small">{item.label}</p>
@@ -89,6 +93,7 @@ export function GalleryPage() {
           </div>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   );
 }

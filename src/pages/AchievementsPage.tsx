@@ -2,6 +2,7 @@ import { achievements } from '../data/siteData';
 import images from '../data/images';
 import { Link } from 'react-router-dom';
 import { useEffect, useRef, useState } from 'react';
+import { pageSeo, Seo } from '../seo/seo';
 
 export function AchievementsPage() {
   const items = achievements;
@@ -102,7 +103,9 @@ export function AchievementsPage() {
   }, [viewerRef.current]);
 
   return (
-    <div className="page-shell-inner">
+    <>
+      <Seo {...pageSeo.achievements} />
+      <div className="page-shell-inner">
       <section className="achievements-hero">
         <div className="container hero-grid">
           <div>
@@ -246,7 +249,8 @@ export function AchievementsPage() {
           ))}
         </div>
       </section>
-    </div>
+      </div>
+    </>
   );
 }
 

@@ -1,9 +1,12 @@
 import images from '../data/images';
+import { pageSeo, Seo } from '../seo/seo';
 
 export function LeadershipPage() {
   return (
-    <div className="page-shell-inner">
-      <section className="page-intro section-maroon">
+    <>
+      <Seo {...pageSeo.leadership} />
+      <div className="page-shell-inner">
+      <section className="page-intro section-maroon" data-reveal>
         <div className="container page-intro-grid">
           <div>
             <p className="eyebrow">Leadership</p>
@@ -23,12 +26,12 @@ export function LeadershipPage() {
         <span className="flourish-line" />
       </div>
 
-      <section className="section-spacing">
+      <section className="section-spacing" data-reveal>
         <div className="container leadership-grid">
-          <div className="leader-portrait">
+          <div className="leader-portrait" data-reveal>
             <img src={images.leadershipLead.src} alt={images.leadershipLead.alt} data-remote={images.leadershipLead.remote} />
           </div>
-          <div className="leader-copy">
+          <div className="leader-copy" data-reveal>
             <p className="eyebrow">Leadership & management</p>
             <h2>Strong values, clear standards and a child-first ethos.</h2>
             <p>
@@ -44,6 +47,7 @@ export function LeadershipPage() {
           </div>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   );
 }

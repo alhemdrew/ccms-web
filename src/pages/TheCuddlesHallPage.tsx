@@ -1,7 +1,11 @@
+import { pageSeo, Seo } from '../seo/seo';
+
 export function TheCuddlesHallPage() {
   return (
-    <div className="page-shell-inner">
-      <section className="page-intro section-maroon">
+    <>
+      <Seo {...pageSeo.hall} />
+      <div className="page-shell-inner">
+      <section className="page-intro section-maroon" data-reveal>
         <div className="container page-intro-grid">
           <div>
             <p className="eyebrow">The Cuddles Hall</p>
@@ -22,7 +26,7 @@ export function TheCuddlesHallPage() {
         <span className="flourish-line" />
       </div>
 
-      <section className="section-spacing">
+      <section className="section-spacing" data-reveal>
         <div className="container two-column-copy">
           <div>
             <p className="eyebrow">Middle years</p>
@@ -38,6 +42,7 @@ export function TheCuddlesHallPage() {
           </div>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   );
 }

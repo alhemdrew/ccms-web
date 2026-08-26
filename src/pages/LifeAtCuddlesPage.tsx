@@ -1,4 +1,5 @@
 import images from '../data/images';
+import { pageSeo, Seo } from '../seo/seo';
 
 const dailyMoments = [
   { title: 'Morning arrival', text: 'Warm welcomes, secure routines and a true sense of belonging from the very first step in.', image: '/images/school/IMG_9838.jpg' },
@@ -11,8 +12,10 @@ const dailyMoments = [
 
 export function LifeAtCuddlesPage() {
   return (
-    <div className="page-shell-inner">
-      <section className="page-intro section-maroon">
+    <>
+      <Seo {...pageSeo.life} />
+      <div className="page-shell-inner">
+      <section className="page-intro section-maroon" data-reveal>
         <div className="container page-intro-grid">
           <div>
             <p className="eyebrow">Life at Cuddles</p>
@@ -32,13 +35,13 @@ export function LifeAtCuddlesPage() {
         <span className="flourish-line" />
       </div>
 
-      <section className="section-spacing">
+      <section className="section-spacing" data-reveal>
         <div className="container photo-collage life-cuddles-collage">
-          <div className="photo-feature">
+          <div className="photo-feature" data-reveal>
             <img src={images.codingFeature.src} alt={images.codingFeature.alt} data-remote={images.codingFeature.remote} />
           </div>
           <div className="photo-stack">
-            <div className="photo-card tall">
+            <div className="photo-card tall" data-reveal>
               <img src={images.schoolFeature.src} alt={images.schoolFeature.alt} data-remote={images.schoolFeature.remote} />
             </div>
             <div className="photo-card">
@@ -51,7 +54,7 @@ export function LifeAtCuddlesPage() {
         </div>
       </section>
 
-      <section className="section-spacing">
+      <section className="section-spacing" data-reveal>
         <div className="container">
           <div className="section-header center">
             <p className="eyebrow">A day in motion</p>
@@ -60,7 +63,7 @@ export function LifeAtCuddlesPage() {
 
           <div className="value-panel-grid">
             {dailyMoments.map((item) => (
-              <article className="info-card life-moment-card" key={item.title}>
+              <article className="info-card life-moment-card" key={item.title} data-reveal>
                 <div className="moment-image" style={{ backgroundImage: `url(${item.image})` }} />
                 <h3>{item.title}</h3>
                 <p>{item.text}</p>
@@ -69,6 +72,7 @@ export function LifeAtCuddlesPage() {
           </div>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   );
 }
