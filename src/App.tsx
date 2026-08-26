@@ -1,3 +1,4 @@
+import { asset } from './utils/assets';
 import './styles/App.css';
 import { BrowserRouter, NavLink, Route, Routes, Link, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
@@ -101,7 +102,7 @@ function AppShell() {
           <div className="container nav-wrap">
             <Link to="/" className="brand-block" aria-label="Cuddles Childminders and Schools brand" onClick={() => setMobileMenuOpen(false)}>
               <span className="brand-mark">
-                <img src="/images/logo/ccms.png" alt="Cuddles logo" />
+                <img src={asset('/images/logo/ccms.png')} alt="Cuddles logo" />
               </span>
               <div>
                 <p className="eyebrow small">CUDDLES</p>
@@ -244,8 +245,12 @@ function AppShell() {
 }
 
 function App() {
+  const basename = window.location.pathname.startsWith('/ccms-web')
+    ? '/ccms-web'
+    : undefined;
+
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={basename}>
       <AppShell />
     </BrowserRouter>
   );
