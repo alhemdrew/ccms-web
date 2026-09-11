@@ -5,22 +5,22 @@ const innovationFeatures = [
   {
     title: 'Design thinking',
     text: 'Children learn to identify a problem, imagine possibilities and prototype solutions with confidence.',
-    image: asset('/images/they%20question.png'),
+    image: asset('/images/they-question.png'),
   },
   {
     title: 'Coding & digital fluency',
     text: 'Students build real technology literacy through collaborative, hands-on experimentation.',
-    image: asset('/images/coding/coding'),
+    image: asset('/images/coding/coding.png'),
   },
   {
     title: 'Entrepreneurship',
     text: 'Children begin to pitch ideas, refine strategies and articulate value in ways that feel authentic.',
-    image: asset('/images/They%20present.png'),
+    image: asset('/images/they-present.png'),
   },
   {
     title: 'Public voice',
     text: 'Students grow into confident speakers, collaborators and young leaders.',
-    image: asset('/images/They%20lead.png'),
+    image: asset('/images/they-lead.png'),
   },
 ];
 
@@ -61,7 +61,7 @@ export function InnovationPage() {
               </p>
             </div>
             <div className="innovation-page-media" data-reveal>
-              <img src={asset('/images/they create.png')} alt="Students creating tech ideas together" />
+              <img src={asset('/images/they-create.png')} alt="Students creating tech ideas together" />
             </div>
           </div>
         </div>

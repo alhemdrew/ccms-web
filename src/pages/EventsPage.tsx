@@ -22,14 +22,14 @@ const eventData = [
     type: 'Technology',
     text: 'Practical technology experiences that help students think, create and problem-solve with confidence.',
     badge: 'STEM',
-    image: asset('/images/coding/coding'),
+    image: asset('/images/coding/coding.png'),
   },
   {
     title: 'Presentation & Leadership',
     type: 'Entrepreneurship',
     text: 'Students present ideas, develop public voice and grow into confident young leaders.',
     badge: 'Leadership',
-    image: asset('/images/They%20present.png'),
+    image: asset('/images/they-present.png'),
   },
   {
     title: 'Campus Life',
@@ -43,7 +43,7 @@ const eventData = [
     type: 'Art',
     text: 'Students explore ideas with materials, stories and imagination that make learning vivid.',
     badge: 'Creative',
-    image: asset('/images/they%20create.png'),
+    image: asset('/images/they-create.png'),
   },
 ];
 

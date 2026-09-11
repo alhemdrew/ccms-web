@@ -14,6 +14,7 @@ export const navItems: NavItem[] = [
   { label: 'Events', href: '/events' },
   { label: 'Gallery', href: '/gallery' },
   { label: 'Leadership', href: '/leadership' },
+  { label: 'Management', href: '/management' },
   { label: 'Admissions', href: '/admissions' },
   { label: 'Contact', href: '/contact' },
 ];
@@ -74,27 +75,27 @@ export const galleryStory = [
   {
     label: 'They explore.',
     title: 'Curiosity meets real-world learning.',
-    image: asset('/images/they%20explore.PNG'),
+    image: asset('/images/they-explore.png'),
   },
   {
     label: 'They question.',
     title: 'Ideas are tested, discussed and refined.',
-    image: asset('/images/they%20question.png'),
+    image: asset('/images/they-question.png'),
   },
   {
     label: 'They create.',
     title: 'Projects, art and innovation become tangible.',
-    image: asset('/images/they%20create.png'),
+    image: asset('/images/they-create.png'),
   },
   {
     label: 'They present.',
     title: 'Confidence grows through public speaking and demonstration.',
-    image: asset('/images/They%20present.png'),
+    image: asset('/images/they-present.png'),
   },
   {
     label: 'They lead.',
     title: 'Children learn to take responsibility and inspire others.',
-    image: asset('/images/They%20lead.png'),
+    image: asset('/images/they-lead.png'),
   },
 ];
 
@@ -115,13 +116,13 @@ export const achievements = [
     title: 'Nigerian Army Competition/Award',
     result: 'Recognition received',
     year: '2025',
-    slides: [asset('/images/achievements/military art award.png')],
+    slides: [asset('/images/achievements/military-art-award.png')],
   },
   {
     title: 'Additional Recognition',
     result: '2nd Place / 3rd Place',
     year: '2025',
-    slides: [asset('/images/achievements/art award.png'), asset('/images/achievements/iot award.png')],
+    slides: [asset('/images/achievements/art-award.png'), asset('/images/achievements/iot-award.png')],
   },
 ];
 

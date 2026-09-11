@@ -326,8 +326,8 @@ p {
 }
 
 .section-maroon {
-  background: linear-gradient(135deg, var(--surface-maroon), var(--surface-maroon-deep) 62%, #2f0e1d 100%);
-  color: var(--text-on-maroon);
+  background: linear-gradient(135deg, var(--ccms-green), var(--ccms-green-dark) 62%, #0a4e32 100%);
+  color: var(--ccms-maroon);
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
 }
 

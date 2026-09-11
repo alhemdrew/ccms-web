@@ -4,7 +4,7 @@ import { pageSeo, Seo } from '../seo/seo';
 
 const dailyMoments = [
   { title: 'Morning arrival', text: 'Warm welcomes, secure routines and a true sense of belonging from the very first step in.', image: asset('/images/school/IMG_9838.jpg') },
-  { title: 'Learning through play', text: 'Discovery, movement and curiosity shape the rhythm of the day.', image: asset('/images/they%20explore.PNG') },
+  { title: 'Learning through play', text: 'Discovery, movement and curiosity shape the rhythm of the day.', image: asset('/images/they-explore.png') },
   { title: 'Creative expression', text: 'Art, making and storytelling build identity, confidence and joy.', image: asset('/images/art/the-cuddles-experience.png') },
   { title: 'Community connection', text: 'Shared stories, kindness and responsibility become everyday habits.', image: asset('/images/students/ccms-kids.png') },
   { title: 'School pride', text: 'Students connect with their environment, their teachers and each other with confidence.', image: asset('/images/campus/sch_build.jpeg') },

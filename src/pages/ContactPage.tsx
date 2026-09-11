@@ -1,6 +1,59 @@
+import { useState } from 'react';
 import { pageSeo, Seo } from '../seo/seo';
+import WhatsAppCTA from '../components/WhatsAppCTA';
+import contactConfig from '../config/contact';
 
 export function ContactPage() {
+  const [fullName, setFullName] = useState('');
+  const [email, setEmail] = useState('');
+  const [enquiryType, setEnquiryType] = useState('');
+  const [message, setMessage] = useState('');
+  const [status, setStatus] = useState<{ type: 'success' | 'error'; message: string } | null>(null);
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    if (!fullName || !email || !enquiryType || !message) {
+      setStatus({ type: 'error', message: 'Please complete all fields before sending your enquiry.' });
+      return;
+    }
+
+    try {
+      const formData = new FormData();
+      formData.append('fullName', fullName);
+      formData.append('email', email);
+      formData.append('enquiryType', enquiryType);
+      formData.append('message', message);
+      formData.append('_subject', `Website enquiry: ${enquiryType}`);
+
+      const response = await fetch(contactConfig.formspreeEndpoint, {
+        method: 'POST',
+        body: formData,
+        headers: { Accept: 'application/json' },
+      });
+
+      const payload = await response.json().catch(() => null);
+
+      if (!response.ok) {
+        throw new Error(payload?.errors?.[0]?.message || 'Unable to send your enquiry right now. Please try again.');
+      }
+
+      setStatus({
+        type: 'success',
+        message: 'Thank you. Your enquiry has been sent successfully and our team will get back to you soon.',
+      });
+      setFullName('');
+      setEmail('');
+      setEnquiryType('');
+      setMessage('');
+    } catch (error) {
+      setStatus({
+        type: 'error',
+        message: error instanceof Error ? error.message : 'Unable to send your enquiry right now. Please try again.',
+      });
+    }
+  };
+
   return (
     <>
       <Seo {...pageSeo.contact} />
@@ -56,28 +109,32 @@ export function ContactPage() {
                   <strong><a href="mailto:info@cuddleschildmindersandschools.com">info@cuddleschildmindersandschools.com</a></strong>
                 </li>
                 <li>
+                  <span className="contact-label">WhatsApp</span>
+                  <strong><WhatsAppCTA /></strong>
+                </li>
+                <li>
                   <span className="contact-label">Website</span>
                   <strong><a href="https://cuddleschildmindersandschools.com">cuddleschildmindersandschools.com</a></strong>
                 </li>
               </ul>
             </div>
 
-            <form className="enquiry-form" data-reveal>
+            <form className="enquiry-form" data-reveal action={contactConfig.formspreeEndpoint} method="POST" onSubmit={handleSubmit}>
               <div className="form-header-row">
                 <p className="eyebrow">Send a note</p>
                 <h3>Enquire with us</h3>
               </div>
               <label>
                 Full name
-                <input type="text" placeholder="[Name to be supplied]" />
+                <input type="text" name="fullName" value={fullName} onChange={(event) => setFullName(event.target.value)} placeholder="Full name" required />
               </label>
               <label>
                 Email
-                <input type="email" placeholder="[Email to be supplied]" />
+                <input type="email" name="email" value={email} onChange={(event) => setEmail(event.target.value)} placeholder="Email address" required />
               </label>
               <label>
                 Enquiry type
-                <select defaultValue="">
+                <select name="enquiryType" value={enquiryType} onChange={(event) => setEnquiryType(event.target.value)} required>
                   <option value="" disabled>Choose an option</option>
                   <option>Admission enquiry</option>
                   <option>General enquiry</option>
@@ -86,9 +143,14 @@ export function ContactPage() {
               </label>
               <label>
                 Message
-                <textarea rows={4} placeholder="[Your message]" />
+                <textarea name="message" rows={4} value={message} onChange={(event) => setMessage(event.target.value)} placeholder="Your message" required />
               </label>
               <button className="button button-primary" type="submit">Send enquiry</button>
+              {status && (
+                <div className={status.type === 'success' ? 'form-success' : 'form-error'} role={status.type === 'success' ? 'status' : 'alert'}>
+                  {status.message}
+                </div>
+              )}
             </form>
           </div>
 

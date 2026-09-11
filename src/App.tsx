@@ -15,6 +15,7 @@ import { LearningPage } from './pages/LearningPage';
 import { LifeAtCuddlesPage } from './pages/LifeAtCuddlesPage';
 import { TheCuddlesHallPage } from './pages/TheCuddlesHallPage';
 import { AchievementsPage } from './pages/AchievementsPage';
+import { ManagementPage } from './pages/ManagementPage';
 
 const schoolLinks = [
   { label: 'Cuddles Childminders School', href: '/childminders' },
@@ -33,6 +34,7 @@ const mainLinks = [
   { label: 'About', href: '/about' },
   { label: 'Learning', href: '/learning' },
   { label: 'Leadership', href: '/leadership' },
+  { label: 'Management', href: '/management' },
   { label: 'Admissions', href: '/admissions' },
   { label: 'Contact', href: '/contact' },
 ];
@@ -93,6 +95,8 @@ function AppShell() {
       window.removeEventListener('scroll', toggleHeaderState);
     };
   }, [location.pathname]);
+
+  const isAdmissionsPage = location.pathname === '/admissions';
 
   return (
     <>
@@ -216,15 +220,18 @@ function AppShell() {
             <Route path="/events" element={<EventsPage />} />
             <Route path="/gallery" element={<GalleryPage />} />
             <Route path="/leadership" element={<LeadershipPage />} />
+            <Route path="/management" element={<ManagementPage />} />
             <Route path="/admissions" element={<AdmissionsPage />} />
             <Route path="/contact" element={<ContactPage />} />
           </Routes>
         </main>
 
-        <div className="global-contact-connector" aria-label="Quick contact shortcut">
-          <Link to="/contact" className="button button-primary connector-button">Apply now</Link>
-          <a href="tel:07030137246" className="connector-call">Call</a>
-        </div>
+        {!isAdmissionsPage && (
+          <div className="global-contact-connector" aria-label="Quick contact shortcut">
+            <Link to="/contact" className="button button-primary connector-button">Apply now</Link>
+            <a href="tel:07030137246" className="connector-call">Call</a>
+          </div>
+        )}
 
         <footer className="site-footer">
           <div className="container footer-wrap">
@@ -234,6 +241,7 @@ function AppShell() {
             </div>
             <div>
               <Link to="/about">About</Link>
+              <Link to="/management">Management</Link>
               <Link to="/admissions">Admissions</Link>
               <Link to="/contact">Contact</Link>
             </div>

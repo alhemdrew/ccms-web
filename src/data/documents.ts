@@ -1,0 +1,86 @@
+import { asset } from '../utils/assets';
+
+export const admissionDocuments = [
+  {
+    id: 'basic-elementary-registration',
+    filename: 'BASIC ELEMENTARY LEVEL REGISTRATION FORM PDF.pdf',
+    title: 'Basic Elementary Level Registration Form',
+    type: 'Registration form',
+    level: 'Basic Elementary',
+    href: asset('/ad_documentation/BASIC ELEMENTARY LEVEL REGISTRATION FORM PDF.pdf'),
+  },
+  {
+    id: 'preschool-health-history',
+    filename: 'PRESCHOOL CLASSES HEALTH HISTORY FORM PDF.pdf',
+    title: 'Preschool Classes Health History Form',
+    type: 'Health form',
+    level: 'Preschool',
+    href: asset('/ad_documentation/PRESCHOOL CLASSES HEALTH HISTORY FORM PDF.pdf'),
+  },
+  {
+    id: 'preschool-registration-1',
+    filename: 'PRE-SCHOOLERS CCMS REGISTRATION FORM  PDF (1).pdf',
+    title: 'Pre-Schoolers Registration Form (copy)',
+    type: 'Registration form',
+    level: 'Preschool',
+    href: asset('/ad_documentation/PRE-SCHOOLERS CCMS REGISTRATION FORM  PDF (1).pdf'),
+  },
+  {
+    id: 'preschool-registration',
+    filename: 'PRE-SCHOOLERS CCMS REGISTRATION FORM  PDF.pdf',
+    title: 'Pre-Schoolers Registration Form',
+    type: 'Registration form',
+    level: 'Preschool',
+    href: asset('/ad_documentation/PRE-SCHOOLERS CCMS REGISTRATION FORM  PDF.pdf'),
+  },
+  {
+    id: 'primary-secondary-health',
+    filename: 'PRIMARY & SECONDARY SCHOOL  HEALTH FORM PDF.pdf',
+    title: 'Primary & Secondary School Health Form',
+    type: 'Health form',
+    level: 'Primary / Secondary',
+    href: asset('/ad_documentation/PRIMARY & SECONDARY SCHOOL  HEALTH FORM PDF.pdf'),
+  },
+  {
+    id: 'school-policy',
+    filename: 'SCHOOL POLICY PDF.pdf',
+    title: 'School Policy',
+    type: 'Policy',
+    level: 'All',
+    href: asset('/ad_documentation/SCHOOL POLICY PDF.pdf'),
+  },
+  {
+    id: 'secondary-registration',
+    filename: 'SECONDARY SCHOOLREGISTRATION FORM PDF.pdf',
+    title: 'Secondary School Registration Form',
+    type: 'Registration form',
+    level: 'Secondary',
+    href: asset('/ad_documentation/SECONDARY SCHOOLREGISTRATION FORM PDF.pdf'),
+  },
+  {
+    id: 'social-media-policy',
+    filename: 'SOCIAL MEDIA POLICY  PDF.pdf',
+    title: 'Social Media Policy',
+    type: 'Policy',
+    level: 'All',
+    href: asset('/ad_documentation/SOCIAL MEDIA POLICY  PDF.pdf'),
+  },
+  {
+    id: 'student-code-of-conduct',
+    filename: "STUDENTS' CODE OF CONDUCT & DISCIPLINARY ACTIONS PDF.pdf",
+    title: "Students' Code of Conduct & Disciplinary Actions",
+    type: 'Policy',
+    level: 'All',
+    href: asset(`/ad_documentation/${encodeURI("STUDENTS' CODE OF CONDUCT & DISCIPLINARY ACTIONS PDF.pdf")}`),
+  },
+  {
+    id: 'vision-mission',
+    filename: 'Vision & Mission Statements.docx',
+    title: 'Vision & Mission Statements',
+    type: 'Official statements',
+    level: 'All',
+    href: asset('/ad_documentation/Vision & Mission Statements.docx'),
+  },
+];
+
+export default admissionDocuments;

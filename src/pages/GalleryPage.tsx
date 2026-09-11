@@ -4,17 +4,17 @@ import { pageSeo, Seo } from '../seo/seo';
 import images from '../data/images';
 
 const galleryItems = [
-  { label: 'Classroom', title: 'They explore.', meta: 'Curiosity meets real-world learning.', tone: 'story-1', image: asset('/images/they%20explore.PNG') },
-  { label: 'Innovation', title: 'They build.', meta: 'Projects, coding and experimentation in motion.', tone: 'story-2', image: asset('/images/coding/coding') },
-  { label: 'Art', title: 'They create.', meta: 'Expression, craft and imagination become visible.', tone: 'story-3', image: asset('/images/they%20create.png') },
-  { label: 'Events', title: 'They present.', meta: 'Confidence grows through performance and public voice.', tone: 'story-1', image: asset('/images/They%20present.png') },
-  { label: 'Leadership', title: 'They lead.', meta: 'Responsibility, initiative and citizenship in action.', tone: 'story-2', image: asset('/images/They%20lead.png') },
+  { label: 'Classroom', title: 'They explore.', meta: 'Curiosity meets real-world learning.', tone: 'story-1', image: asset('/images/they-explore.png') },
+  { label: 'Innovation', title: 'They build.', meta: 'Projects, coding and experimentation in motion.', tone: 'story-2', image: asset('/images/coding/coding.png') },
+  { label: 'Art', title: 'They create.', meta: 'Expression, craft and imagination become visible.', tone: 'story-3', image: asset('/images/they-create.png') },
+  { label: 'Events', title: 'They present.', meta: 'Confidence grows through performance and public voice.', tone: 'story-1', image: asset('/images/they-present.png') },
+  { label: 'Leadership', title: 'They lead.', meta: 'Responsibility, initiative and citizenship in action.', tone: 'story-2', image: asset('/images/they-lead.png') },
   { label: 'Community', title: 'They belong.', meta: 'A warm culture of encouragement and purpose.', tone: 'story-3', image: asset('/images/students/ccms-kids.png') },
   { label: 'Play', title: 'They wonder.', meta: 'Joy, movement and discovery are part of the daily rhythm.', tone: 'story-1', image: asset('/images/school/IMG_9838.jpg') },
-  { label: 'Creativity', title: 'They imagine.', meta: 'Hands-on making turns inspiration into confidence.', tone: 'story-2', image: asset('/images/they%20question.png') },
+  { label: 'Creativity', title: 'They imagine.', meta: 'Hands-on making turns inspiration into confidence.', tone: 'story-2', image: asset('/images/they-question.png') },
   { label: 'Growth', title: 'They thrive.', meta: 'Every achievement is a step toward a fuller sense of self.', tone: 'story-3', image: asset('/images/campus/sch_build.jpeg') },
   { label: 'Art', title: 'The Cuddles experience.', meta: 'A creative learning culture in full view.', tone: 'story-1', image: asset('/images/art/the-cuddles-experience.png') },
-  { label: 'Technology', title: 'Digital curiosity.', meta: 'Students are building ideas, not just learning tools.', tone: 'story-2', image: asset('/images/they%20question.png') },
+  { label: 'Technology', title: 'Digital curiosity.', meta: 'Students are building ideas, not just learning tools.', tone: 'story-2', image: asset('/images/they-question.png') },
   { label: 'Community', title: 'School life.', meta: 'Daily moments, belonging and authentic togetherness.', tone: 'story-3', image: asset('/images/students/circle.png') },
 ];
 

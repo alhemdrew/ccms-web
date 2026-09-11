@@ -335,6 +335,19 @@ export const pageSeo = {
       path: '/leadership',
     })],
   },
+  management: {
+    title: 'Management at Cuddles Childminders & Schools | Educational Leadership in Abuja',
+    description:
+      'Meet the educational leaders behind Cuddles Childminders & Schools and learn how their guidance supports learning, care, creativity and whole-child development in Abuja.',
+    path: '/management',
+    keywords: ['CCMS management', 'school leaders Abuja', 'Cuddles leadership team'],
+    structuredData: [organizationSchema, websiteSchema, buildPageSchema({
+      title: 'Management at Cuddles Childminders & Schools | Educational Leadership in Abuja',
+      description:
+        'Meet the educational leaders behind Cuddles Childminders & Schools and learn how their guidance supports learning, care, creativity and whole-child development in Abuja.',
+      path: '/management',
+    })],
+  },
   admissions: {
     title: 'Admissions at Cuddles Childminders & Schools | Join Our School in Abuja',
     description:
