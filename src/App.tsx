@@ -104,7 +104,7 @@ function AppShell() {
       <div className="page-shell">
         <header className="topbar">
           <div className="container nav-wrap">
-            <Link to="/" className="brand-block" aria-label="Cuddles Childminders and Schools brand" onClick={() => setMobileMenuOpen(false)}>
+            <Link to="/" className="brand-block" aria-label="Cuddles Childminders & Schools brand" onClick={() => setMobileMenuOpen(false)}>
               <span className="brand-mark">
                 <img src={asset('/images/logo/ccms.png')} alt="Cuddles logo" />
               </span>

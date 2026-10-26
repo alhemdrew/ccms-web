@@ -21,6 +21,16 @@ This directory is structured to support the art direction and future photography
 - Prefer descriptive names such as `classroom-reading-session.jpg`.
 - Keep a consistent aspect ratio for each section.
 
+## Notes about existing files
+- The project previously contained mixed-case and space-containing filenames (e.g. `They lead.png`).
+- Some files were missing extensions (e.g. `public/images/coding/coding`) — these have been inspected and should be renamed to include the correct extension. See the audit plan below for next steps.
+
+## Audit plan
+1. Detect mime types of ambiguous files and rename with appropriate extensions (e.g. `.png`, `.jpg`, `.webp`).
+2. Convert HEIC files to `jpg` or `webp` for browser compatibility when referenced in the site.
+3. Replace references in `src/data/images.ts` and across `src/pages` to match normalized file names.
+4. Run `npm run build` and verify all images resolve correctly.
+
 ## Recommended dimensions
 - Hero image: 1600 x 1800 portrait or 1800 x 1200 landscape
 - Section imagery: 1200 x 900 to 1600 x 1100

@@ -4,6 +4,7 @@ import { pageSeo, Seo } from '../seo/seo';
 import { admissionsData, documentLibrary, faqItems, admissionsSteps } from '../data/admissions';
 import contactConfig from '../config/contact';
 import images from '../data/images';
+import { asset } from '../utils/assets';
 
 function AdmissionsUploadForm({ selectedClassName }: { selectedClassName: string }) {
   const classOptions = useMemo(
@@ -555,7 +556,7 @@ export function AdmissionsPage() {
           <div className="container admissions-hero-layout">
             <div className="admissions-hero-copy">
               <p className="eyebrow">Admissions</p>
-              <h1>Where your child’s next chapter begins.</h1>
+              <h1>Where Your Child’s Next Chapter Begins.</h1>
               <p className="admissions-hero-supporting">
                 Choosing a school is a big decision. We’ve made the admissions journey simple, clear and reassuring so you can focus on choosing the right beginning for your child.
               </p>
@@ -566,7 +567,10 @@ export function AdmissionsPage() {
             </div>
 
             <div className="admissions-hero-visual">
-              <img src={images.schoolFeature.src} alt={images.schoolFeature.alt} />
+              <img
+                src={asset('/images/admissions/admissions-dancer.png')}
+                alt="Student performing a ballet pose in the school corridor"
+              />
             </div>
           </div>
         </section>

@@ -1,8 +1,10 @@
-import { cp } from 'node:fs/promises';
+import { copyFile, cp } from 'node:fs/promises';
 import { relative, resolve, sep } from 'node:path';
 
 const publicDirectory = resolve('public');
 const outputDirectory = resolve('dist');
+
+await copyFile(resolve(outputDirectory, 'index.html'), resolve(outputDirectory, '404.html'));
 
 await cp(publicDirectory, outputDirectory, {
   recursive: true,

@@ -42,7 +42,7 @@ export function LearningPage() {
         <div className="container page-intro-grid">
           <div>
             <p className="eyebrow">Learning</p>
-            <h1>Learning that is active, purposeful and deeply <span className="spring-accent">human</span>.</h1>
+            <h1>Learning That Is Active, Purposeful And Deeply <span className="spring-accent">Human</span>.</h1>
           </div>
           <p>
             We do not separate academic development from identity, confidence and character. Every lesson is designed to help a child think more clearly and participate more fully.
@@ -120,14 +120,40 @@ export function LearningPage() {
         <div className="container">
           <div className="timeline">
             {[
-              ['Foundation stage', 'Secure routines, language growth and sensory-rich learning build confidence.'],
-              ['Primary years', 'Core skills deepen while children become more independent and expressive.'],
-              ['Junior secondary', 'Project work, inquiry and leadership become more central to the experience.'],
-              ['Senior preparation', 'Students engage with greater autonomy, complex ideas and public-facing work.'],
-            ].map(([title, text]) => (
+              {
+                title: 'Foundation stage',
+                text: 'Secure routines, language growth and sensory-rich learning build confidence.',
+              },
+              {
+                title: 'Primary years',
+                text: 'Core skills deepen while children become more independent and expressive.',
+                preparationLabel: 'Entrance preparation',
+                preparation: ['Common Entrance', 'Junior Secondary'],
+              },
+              {
+                title: 'Junior secondary',
+                text: 'Project work, inquiry and leadership become more central to the experience.',
+                preparationLabel: 'Exam preparation',
+                preparation: ['BCE', 'Junior WAEC', 'SATs'],
+              },
+              {
+                title: 'Senior preparation',
+                text: 'Students engage with greater autonomy, complex ideas and public-facing work.',
+                preparationLabel: 'Exam preparation',
+                preparation: ['WAEC', 'NECO', 'SATs'],
+              },
+            ].map(({ title, text, preparationLabel, preparation }) => (
               <article key={title} className="timeline-card" data-reveal>
                 <span>{title}</span>
                 <p>{text}</p>
+                {preparation && (
+                  <div className="timeline-preparation">
+                    <span className="timeline-preparation-label">{preparationLabel}</span>
+                    <ul aria-label={`${preparationLabel} for ${title}`}>
+                      {preparation.map((exam) => <li key={exam}>{exam}</li>)}
+                    </ul>
+                  </div>
+                )}
               </article>
             ))}
           </div>

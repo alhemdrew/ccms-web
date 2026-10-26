@@ -11,7 +11,7 @@ export function AboutPage() {
         <div className="container page-intro-grid">
           <div>
             <p className="eyebrow">About us</p>
-            <h1>Purpose-led education for <span className="spring-accent">curious</span>, confident children.</h1>
+            <h1>Purpose-led Education For <span className="spring-accent">Curious</span>, Confident Children.</h1>
           </div>
           <p>
             Cuddles Childminders & Schools is a warm and rigorous learning environment shaped by thoughtful care, strong values and an ambitious view of what children can become.

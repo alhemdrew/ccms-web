@@ -10,7 +10,7 @@ export function ChildmindersPage() {
         <div className="container page-intro-grid">
           <div>
             <p className="eyebrow">Cuddles Childminders School</p>
-            <h1>A <span className="spring-accent">nurturing</span> beginning for children who are learning how to thrive.</h1>
+            <h1>A <span className="spring-accent">Nurturing</span> Beginning For Children Who Are Learning How To Thrive.</h1>
           </div>
           <p>
             The early years are a time for wonder, belonging and deep emotional security. Our nurturing environment helps every child feel safe enough to explore, connect and grow.

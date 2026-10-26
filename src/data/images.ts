@@ -91,9 +91,9 @@ export const images = {
     alt: 'School event showcasing student creativity',
   },
   campusBuild: {
-    src: asset('/images/campus/sch_build.jpeg'),
+    src: asset('/images/hero/building.png'),
     temporary: false,
-    remote: asset('/images/campus/sch_build.jpeg'),
+    remote: asset('/images/hero/building.png'),
     alt: 'Cuddles school building on campus',
   },
   codingFeature: {

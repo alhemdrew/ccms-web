@@ -62,7 +62,7 @@ export function ContactPage() {
         <div className="container page-intro-grid">
           <div>
             <p className="eyebrow">Contact</p>
-            <h1>We’d love to <span className="spring-accent">hear</span> from you.</h1>
+            <h1>We’d Love To <span className="spring-accent">Hear</span> From You.</h1>
           </div>
           <p>
             Whether you are exploring admissions, requesting a school tour or asking a general question, we are always happy to speak with you.

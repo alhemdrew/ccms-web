@@ -2060,6 +2060,73 @@
   align-content: center;
 }
 
+.leadership-pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 0.5rem;
+}
+
+.leadership-pill-row span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 0.54rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(15, 122, 76, 0.07);
+  border: 1px solid rgba(15, 122, 76, 0.12);
+  color: var(--ccms-green-dark);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.leadership-principles {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.leadership-principle {
+  display: grid;
+  gap: 0.8rem;
+  padding: clamp(1.3rem, 2vw, 1.7rem);
+  border-radius: 24px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(240,247,241,0.95));
+  border: 1px solid rgba(15, 35, 51, 0.07);
+  box-shadow: 0 18px 42px rgba(18, 27, 33, 0.06);
+}
+
+.leadership-principle p:last-child {
+  margin: 0;
+  color: var(--text-soft);
+}
+
+.leadership-story {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.leadership-story-copy {
+  display: grid;
+  gap: 1rem;
+}
+
+.leadership-quote {
+  margin: 0;
+  padding: 1rem 1.1rem;
+  border-left: 4px solid rgba(111, 23, 52, 0.6);
+  border-radius: 0 12px 12px 0;
+  background: rgba(111, 23, 52, 0.05);
+  color: var(--ccms-maroon);
+  font-size: clamp(1.2rem, 2vw, 1.7rem);
+  font-weight: 700;
+  line-height: 1.4;
+}
+
 .leadership-inline-images {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -3070,6 +3137,40 @@
   letter-spacing: 0.08em;
   font-weight: 700;
   font-size: 0.75rem;
+}
+
+.timeline-preparation {
+  display: grid;
+  gap: 0.55rem;
+  margin-top: 0.25rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid rgba(15, 35, 51, 0.08);
+}
+
+.timeline-preparation .timeline-preparation-label {
+  color: var(--ccms-maroon);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+}
+
+.timeline-preparation ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.timeline-preparation li {
+  padding: 0.4rem 0.68rem;
+  border: 1px solid rgba(15, 122, 76, 0.13);
+  border-radius: 999px;
+  background: rgba(15, 122, 76, 0.06);
+  color: var(--ccms-green-dark);
+  font-size: 0.76rem;
+  font-weight: 700;
+  line-height: 1.2;
 }
 
 .page-intro {

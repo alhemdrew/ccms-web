@@ -20,7 +20,7 @@ export function LifeAtCuddlesPage() {
         <div className="container page-intro-grid">
           <div>
             <p className="eyebrow">Life at Cuddles</p>
-            <h1>A school day shaped by <span className="spring-accent">warmth</span>, confidence and meaningful growth.</h1>
+            <h1>A School Day Shaped By <span className="spring-accent">Warmth</span>, Confidence And Meaningful Growth.</h1>
           </div>
           <p>
             Life at Cuddles is designed to help children move through the day with clarity, security and delight — while developing habits that last well beyond school.

@@ -25,7 +25,7 @@ export function ManagementPage() {
           <div className="container page-intro-grid">
             <div>
               <p className="eyebrow">Management</p>
-              <h1>Leadership with <span className="spring-accent">purpose</span>.</h1>
+              <h1>Leadership With <span className="spring-accent">Purpose</span>.</h1>
             </div>
             <p className="management-banner-copy">
               Strong schools are shaped by people who create welcoming environments, protect standards, and help children grow with confidence, creativity and character.

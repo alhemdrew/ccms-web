@@ -11,7 +11,7 @@ export function TheCuddlesHallPage() {
           <div>
             <p className="eyebrow">The Cuddles Hall</p>
             <img src={asset('/images/logo/tch.png')} alt="The Cuddles Hall logo" className="tch-logo" />
-            <h1>A next-stage learning environment for <span className="spring-accent">deeper</span> thinking and stronger identity.</h1>
+            <h1>A Next-stage Learning Environment For <span className="spring-accent">Deeper</span> Thinking And Stronger Identity.</h1>
           </div>
           <p>
             The Cuddles Hall is where children move from foundational confidence into more purposeful, independent and intellectually ambitious learning.

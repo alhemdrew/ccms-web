@@ -26,8 +26,8 @@ export function HomePage() {
           <div className="hero-copy" data-reveal>
             <p className="eyebrow hero-kicker">Cuddles</p>
             <h1>
-              Raising thinkers.
-              <span>Building leaders.</span>
+              Raising Thinkers.
+              <span>Building Leaders.</span>
             </h1>
 
             <div className="hero-writing-wrap" aria-live="polite">
@@ -68,8 +68,8 @@ export function HomePage() {
               <p className="campus-caption">Our campus — a place where learning, creativity and belonging grow together.</p>
             </div>
             <div className="floating-note">
-              <span className="note-label">Whole-child learning</span>
-              <strong>We teach children how to think, not what to think.</strong>
+              <span className="note-label">Our Educational Purpose</span>
+              <strong>CREATIVELY DEVELOPING A WHOLE CHILD</strong>
             </div>
           </div>
         </div>

@@ -33,7 +33,7 @@ export function InnovationPage() {
         <div className="container page-intro-grid">
           <div>
             <p className="eyebrow">Innovation</p>
-            <h1>Students are encouraged to create, test and lead <span className="spring-accent">boldly</span>.</h1>
+            <h1>Students Are Encouraged To Create, Test And Lead <span className="spring-accent">Boldly</span>.</h1>
           </div>
           <p>
             We give children opportunities to explore emerging ideas, solve practical problems and share their thinking with confidence.

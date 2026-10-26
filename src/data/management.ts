@@ -37,7 +37,7 @@ I work closely with the Head of School to implement school policies, coordinate 
     role: 'Preceptor and Head of the Nursery Department',
     image: asset(encodeURI('/images/mgt/hon.png')),
     photoAlt: 'Miss Cynthia Nwokolo — Preceptor and Head of the Nursery Department',
-    bio: `Miss Cynthia Nwokolo is an educator serving as a Preceptor and Head of the Nursery Department at Cuddles Childminders and Schools.
+    bio: `Miss Cynthia Nwokolo is an educator serving as a Preceptor and Head of the Nursery Department at Cuddles Childminders & Schools.
 
 As the Head of the Nursery Department, she provides leadership and direction, coordinates staff and activities, and supports the smooth running of academic and daily operations within the department. She works closely with the Head of School, Mrs Bukola Odomo, to implement school policies, maintain standards, and ensure the effective running of the school.
 
