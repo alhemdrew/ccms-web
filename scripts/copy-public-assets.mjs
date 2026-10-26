@@ -1,10 +1,31 @@
-import { copyFile, cp } from 'node:fs/promises';
+import { copyFile, cp, mkdir } from 'node:fs/promises';
 import { relative, resolve, sep } from 'node:path';
 
 const publicDirectory = resolve('public');
 const outputDirectory = resolve('dist');
+const routes = [
+  'about',
+  'learning',
+  'childminders',
+  'the-cuddles-hall',
+  'life-at-cuddles',
+  'achievements',
+  'innovation',
+  'events',
+  'gallery',
+  'leadership',
+  'management',
+  'admissions',
+  'contact',
+];
 
 await copyFile(resolve(outputDirectory, 'index.html'), resolve(outputDirectory, '404.html'));
+
+for (const route of routes) {
+  const routeDirectory = resolve(outputDirectory, route);
+  await mkdir(routeDirectory, { recursive: true });
+  await copyFile(resolve(outputDirectory, 'index.html'), resolve(routeDirectory, 'index.html'));
+}
 
 await cp(publicDirectory, outputDirectory, {
   recursive: true,
