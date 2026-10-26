@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { useEffect, useRef, useState } from 'react';
 import managementStaff from '../data/management';
 import { pageSeo, Seo } from '../seo/seo';
 
@@ -6,6 +7,16 @@ const featured = managementStaff[0];
 const supporting = managementStaff.slice(1);
 
 export function ManagementPage() {
+  const [selectedPerson, setSelectedPerson] = useState<typeof managementStaff[number] | null>(null);
+  const profileDialog = useRef<HTMLDialogElement>(null);
+
+  useEffect(() => {
+    const dialog = profileDialog.current;
+    if (selectedPerson && dialog && !dialog.open) {
+      dialog.showModal();
+    }
+  }, [selectedPerson]);
+
   return (
     <>
       <Seo {...pageSeo.management} />
@@ -32,15 +43,24 @@ export function ManagementPage() {
 
         <section className="section-spacing" data-reveal>
           <div className="container management-hero">
-            <div className="management-hero-visual">
+            <button
+              type="button"
+              className="management-hero-visual management-profile-trigger"
+              onClick={() => setSelectedPerson(featured)}
+              aria-label={`View full profile for ${featured.name}`}
+            >
               <img src={featured.image} alt={featured.photoAlt} />
-            </div>
+              <span className="management-image-prompt">Meet our Head of School <span aria-hidden="true">↗</span></span>
+            </button>
             <div className="management-hero-copy">
               <p className="eyebrow">School leadership</p>
               <h2>{featured.name}</h2>
               <p className="management-role">{featured.role}</p>
               <p>{featured.bio.split('\n')[0]}</p>
               <div className="management-hero-actions">
+                <button type="button" className="button button-primary" onClick={() => setSelectedPerson(featured)}>
+                  Read full profile
+                </button>
                 <Link to="/admissions" className="button button-primary">Admissions</Link>
                 <Link to="/about" className="button button-secondary">Our philosophy</Link>
               </div>
@@ -94,16 +114,23 @@ export function ManagementPage() {
 
             <div className="management-portrait-grid">
               {supporting.map((person) => (
-                <article className="management-portrait-card" key={person.id}>
+                <button
+                  type="button"
+                  className="management-portrait-card management-profile-trigger"
+                  key={person.id}
+                  onClick={() => setSelectedPerson(person)}
+                  aria-label={`View full profile for ${person.name || person.role}`}
+                >
                   <div className="management-portrait-image">
                     <img src={person.image} alt={person.photoAlt} />
+                    <span className="management-image-prompt">View profile <span aria-hidden="true">↗</span></span>
                   </div>
                   <div className="management-portrait-body">
                     <p className="eyebrow small">{person.role}</p>
                     <h3>{person.name || person.role}</h3>
                     <p>{person.bio && person.bio.length > 180 ? `${person.bio.slice(0, 180)}…` : person.bio}</p>
                   </div>
-                </article>
+                </button>
               ))}
             </div>
           </div>
@@ -161,6 +188,61 @@ export function ManagementPage() {
             </div>
           </div>
         </section>
+
+        <dialog
+          ref={profileDialog}
+          className="management-profile-dialog"
+          aria-labelledby="management-profile-name"
+          onClose={() => setSelectedPerson(null)}
+          onClick={(event) => {
+            if (event.target === profileDialog.current) {
+              profileDialog.current?.close();
+            }
+          }}
+        >
+          {selectedPerson && (
+            <div className="management-profile-modal">
+              <button
+                type="button"
+                className="management-profile-close"
+                onClick={() => profileDialog.current?.close()}
+                aria-label="Close profile"
+                autoFocus
+              >
+                <span aria-hidden="true">×</span>
+              </button>
+              <div className="management-profile-modal-image">
+                <img src={selectedPerson.image} alt={selectedPerson.photoAlt} />
+                <span className="management-profile-modal-kicker">Cuddles leadership</span>
+              </div>
+              <div className="management-profile-modal-content">
+                <p className="eyebrow small">{selectedPerson.role}</p>
+                <h2 id="management-profile-name">{selectedPerson.name || selectedPerson.role}</h2>
+                <div className="management-profile-bio">
+                  {selectedPerson.bio.split('\n').filter(Boolean).map((paragraph, index) => (
+                    <p key={`${selectedPerson.id}-bio-${index}`}>{paragraph}</p>
+                  ))}
+                </div>
+                {selectedPerson.responsibilities.length > 0 && (
+                  <section className="management-profile-detail" aria-label="Areas of responsibility">
+                    <h3>Areas of responsibility</h3>
+                    <ul className="management-profile-tags">
+                      {selectedPerson.responsibilities.map((responsibility) => (
+                        <li key={responsibility}>{responsibility}</li>
+                      ))}
+                    </ul>
+                  </section>
+                )}
+                {selectedPerson.qualifications && (
+                  <section className="management-profile-detail">
+                    <h3>Qualifications & specialist training</h3>
+                    <p>{selectedPerson.qualifications}</p>
+                  </section>
+                )}
+              </div>
+            </div>
+          )}
+        </dialog>
       </div>
     </>
   );

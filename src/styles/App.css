@@ -344,11 +344,69 @@
 }
 
 .management-hero-visual {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
   overflow: hidden;
   border-radius: 1.8rem;
   box-shadow: var(--shadow-soft);
   background: var(--surface);
   min-height: 560px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.management-profile-trigger {
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.management-hero-visual::after,
+.management-portrait-image::after {
+  content: '';
+  position: absolute;
+  inset: 35% 0 0;
+  background: linear-gradient(180deg, transparent, rgba(13, 22, 23, 0.62));
+  pointer-events: none;
+}
+
+.management-image-prompt {
+  position: absolute;
+  z-index: 1;
+  right: 1.1rem;
+  bottom: 1.1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.7rem 0.95rem;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.94);
+  color: var(--ccms-maroon);
+  font-size: 0.78rem;
+  font-weight: 800;
+  box-shadow: 0 8px 24px rgba(10, 18, 20, 0.16);
+  transition: transform var(--transition-base), background var(--transition-base);
+}
+
+.management-image-prompt span {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.management-profile-trigger:hover .management-image-prompt,
+.management-profile-trigger:focus-visible .management-image-prompt {
+  transform: translateY(-3px);
+  background: #ffffff;
+}
+
+.management-profile-trigger:focus-visible {
+  outline: 3px solid var(--ccms-green);
+  outline-offset: 4px;
 }
 
 .management-hero-visual img {
@@ -438,14 +496,26 @@
 }
 
 .management-portrait-card {
+  display: block;
+  width: 100%;
+  padding: 0;
   background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(240,237,232,0.96));
   border: 1px solid rgba(16, 34, 34, 0.06);
   border-radius: 1.5rem;
   overflow: hidden;
   box-shadow: 0 14px 26px rgba(18, 27, 33, 0.06);
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+}
+
+.management-portrait-card:hover,
+.management-portrait-card:focus-visible {
+  transform: translateY(-5px);
+  border-color: rgba(15, 122, 76, 0.2);
+  box-shadow: 0 22px 44px rgba(18, 27, 33, 0.12);
 }
 
 .management-portrait-image {
+  position: relative;
   height: 340px;
   overflow: hidden;
 }
@@ -466,10 +536,166 @@
   padding: 1.2rem 1.2rem 1.45rem;
 }
 
+.management-portrait-body p:last-child {
+  margin-bottom: 0;
+  color: var(--text-soft);
+}
+
 .management-portrait-body h3 {
   margin: 0.2rem 0 0.4rem;
   font-size: 1.5rem;
   color: var(--ccms-maroon);
+}
+
+.management-profile-dialog {
+  width: min(960px, calc(100vw - 2rem));
+  max-width: none;
+  max-height: min(88dvh, 900px);
+  padding: 0;
+  overflow: auto;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 1.6rem;
+  background: #fbfaf7;
+  color: var(--text);
+  box-shadow: 0 32px 100px rgba(6, 15, 18, 0.32);
+}
+
+.management-profile-dialog::backdrop {
+  background: rgba(12, 21, 22, 0.7);
+  backdrop-filter: blur(7px);
+}
+
+.management-profile-modal {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(260px, 0.78fr) minmax(0, 1.22fr);
+  min-height: 580px;
+}
+
+.management-profile-modal-image {
+  position: sticky;
+  top: 0;
+  min-height: 100%;
+  overflow: hidden;
+  background: #e9e6df;
+}
+
+.management-profile-modal-image::after {
+  content: '';
+  position: absolute;
+  inset: 45% 0 0;
+  background: linear-gradient(180deg, transparent, rgba(13, 22, 23, 0.62));
+  pointer-events: none;
+}
+
+.management-profile-modal-image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.management-profile-modal-kicker {
+  position: absolute;
+  z-index: 1;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.management-profile-modal-content {
+  display: grid;
+  align-content: start;
+  gap: 1rem;
+  padding: clamp(1.6rem, 4vw, 3.2rem);
+}
+
+.management-profile-modal-content > .eyebrow {
+  margin: 0;
+}
+
+.management-profile-modal-content h2 {
+  margin: 0;
+  padding-right: 1.5rem;
+  color: var(--ccms-maroon);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1;
+}
+
+.management-profile-bio {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.management-profile-bio p,
+.management-profile-detail p {
+  margin: 0;
+  color: var(--text-soft);
+  line-height: 1.75;
+}
+
+.management-profile-detail {
+  display: grid;
+  gap: 0.7rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(15, 35, 51, 0.1);
+}
+
+.management-profile-detail h3 {
+  margin: 0;
+  color: var(--ccms-green-dark);
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.management-profile-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.management-profile-tags li {
+  padding: 0.5rem 0.72rem;
+  border: 1px solid rgba(15, 122, 76, 0.13);
+  border-radius: 999px;
+  background: rgba(15, 122, 76, 0.06);
+  color: var(--ccms-green-dark);
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.management-profile-close {
+  position: absolute;
+  z-index: 2;
+  top: 1rem;
+  right: 1rem;
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--ccms-maroon);
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(10, 18, 20, 0.16);
+}
+
+.management-profile-close:hover,
+.management-profile-close:focus-visible {
+  background: #fff;
+  outline: 3px solid rgba(15, 122, 76, 0.35);
 }
 
 .management-focus-grid {
@@ -3353,6 +3579,19 @@
 
 
 @media (max-width: 980px) {
+  .management-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .management-hero-visual,
+  .management-hero-visual img {
+    min-height: 440px;
+  }
+
+  .management-portrait-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .gallery-showcase {
     grid-template-rows: none;
   }
@@ -3577,6 +3816,34 @@
 }
 
 @media (max-width: 680px) {
+  .management-hero-visual,
+  .management-hero-visual img {
+    min-height: 360px;
+  }
+
+  .management-portrait-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .management-profile-dialog {
+    width: calc(100vw - 1rem);
+    max-height: 94dvh;
+    border-radius: 1.1rem;
+  }
+
+  .management-profile-modal {
+    grid-template-columns: 1fr;
+  }
+
+  .management-profile-modal-image {
+    position: relative;
+    min-height: 280px;
+  }
+
+  .management-profile-modal-content {
+    padding: 1.4rem;
+  }
+
   .nav-wrap {
     min-height: 72px;
   }

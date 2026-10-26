@@ -20,7 +20,7 @@ As Head of School and Director, she provides strategic leadership in academic de
   },
   {
     id: 'head-of-bel',
-    name: 'Nwabugu Chinonso N. / Mrs. Chinonso',
+    name: 'Nwabugu Chinonso N. (Miss Chinonso)',
     role: 'Head of BEL, Cuddles Childminders & Schools',
     image: asset(encodeURI('/images/mgt/HOB.png')),
     photoAlt: 'Nwabugu Chinonso N. — Head of BEL',
