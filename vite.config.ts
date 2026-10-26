@@ -7,6 +7,9 @@ const env = loadEnv(mode, '.', '');
   return {
     base: env.VITE_BASE_PATH || './',
     plugins: [react()],
+    build: {
+      copyPublicDir: false,
+    },
     server: {
       host: '0.0.0.0',
       port: 5173,
