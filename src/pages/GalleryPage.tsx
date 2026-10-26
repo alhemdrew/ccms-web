@@ -3,11 +3,33 @@ import { useEffect, useMemo, useState } from 'react';
 import { pageSeo, Seo } from '../seo/seo';
 import images from '../data/images';
 
+const duplicateHikingSlideIds = new Set([
+  'IMG_8240',
+  'IMG_8389',
+  'IMG_8390',
+  'IMG_8396',
+  'IMG_8397',
+  'IMG_8399',
+  'IMG_8400',
+  'IMG_8402',
+  'IMG_8404',
+  'IMG_8408',
+  'IMG_8410',
+  'IMG_8441',
+  'IMG_8443',
+  'IMG_8444',
+  'IMG_8450',
+  'IMG_8454',
+  'IMG_8455',
+  'IMG_8457',
+  'IMG_8476',
+  'IMG_8478',
+  'IMG_8479',
+  'IMG_8480',
+]);
 
 const hikingSlides = [
   { src: asset('/images/MOUNTAIN HIKING/IMG_8240.JPG'), alt: 'Mountain hiking activity photograph.', title: 'Mountain hiking', caption: 'Exploring nature and learning beyond the classroom.' },
-  { src: asset('/images/MOUNTAIN HIKING/IMG_8242.JPG'), alt: 'Outdoor hiking experience photograph.', title: 'Mountain hiking', caption: 'Building confidence through outdoor experiences.' },
-  { src: asset('/images/MOUNTAIN HIKING/IMG_8244.JPG'), alt: 'Mountain hiking gallery photograph.', title: 'Mountain hiking', caption: 'Discovering new experiences beyond the classroom.' },
   { src: asset('/images/MOUNTAIN HIKING/IMG_8247.JPG'), alt: 'School hiking activity photograph.', title: 'Mountain hiking', caption: 'Learning, exploration and outdoor adventure.' },
   { src: asset('/images/MOUNTAIN HIKING/IMG_8248.JPG'), alt: 'Outdoor learning activity photograph.', title: 'Mountain hiking', caption: 'Creating memorable learning experiences.' },
   { src: asset('/images/MOUNTAIN HIKING/IMG_8265.JPG'), alt: 'Mountain hiking activity photograph.', title: 'Mountain hiking', caption: 'Shared effort, steady pace and outdoor confidence.' },
@@ -60,6 +82,8 @@ const hikingSlides = [
   { src: asset('/images/MOUNTAIN HIKING/IMG_8416.JPG'), alt: 'Outdoor exploration photograph.', title: 'Mountain hiking', caption: 'Developing resilience through shared adventures.' },
   { src: asset('/images/MOUNTAIN HIKING/IMG_8420.JPG'), alt: 'Mountain hiking gallery photograph.', title: 'Mountain hiking', caption: 'Discovering new environments and perspectives.' },
   { src: asset('/images/MOUNTAIN HIKING/IMG_8421.JPG'), alt: 'School hiking activity photograph.', title: 'Mountain hiking', caption: 'Learning and connecting beyond the classroom.' },
+  { src: asset('/images/MOUNTAIN HIKING/IMG_8242.JPG'), alt: 'Children hiking together on an outdoor trail.', title: 'Mountain hiking', caption: 'Children exploring nature and learning together beyond the classroom.' },
+  { src: asset('/images/MOUNTAIN HIKING/IMG_8244.JPG'), alt: 'Mountain hiking gallery photograph.', title: 'Mountain hiking', caption: 'Discovering new experiences beyond the classroom.' },
   { src: asset('/images/MOUNTAIN HIKING/IMG_8422.JPG'), alt: 'Outdoor hiking photograph.', title: 'Mountain hiking', caption: 'An experience filled with discovery and growth.' },
   { src: asset('/images/MOUNTAIN HIKING/IMG_8423.JPG'), alt: 'Mountain hiking experience photograph.', title: 'Mountain hiking', caption: 'Building courage through outdoor experiences.' },
   { src: asset('/images/MOUNTAIN HIKING/IMG_8424.JPG'), alt: 'School outdoor adventure photograph.', title: 'Mountain hiking', caption: 'Exploring nature and learning together.' },
@@ -129,7 +153,7 @@ const hikingSlides = [
 ].map((slide) => ({
   ...slide,
   src: slide.src.replace(/\.JPG$/, '.webp'),
-}));
+})).filter((slide) => !duplicateHikingSlideIds.has(slide.src.match(/IMG_\d{4}/)?.[0] ?? ''));
 
 const galleryItems = [
   { label: 'Classroom', title: 'They explore.', meta: 'Curiosity meets real-world learning.', tone: 'story-1', image: asset('/images/they-explore.png') },
@@ -143,7 +167,7 @@ const galleryItems = [
   { label: 'Growth', title: 'They thrive.', meta: 'Every achievement is a step toward a fuller sense of self.', tone: 'story-3', image: asset('/images/campus/sch_build.jpeg') },
   { label: 'Art', title: 'The Cuddles experience.', meta: 'A creative learning culture in full view.', tone: 'story-1', image: asset('/images/art/the-cuddles-experience.png') },
   { label: 'Technology', title: 'Digital curiosity.', meta: 'Students are building ideas, not just learning tools.', tone: 'story-2', image: asset('/images/they-question.png') },
-  { label: 'Mountain hiking', title: 'Trail learning.', meta: 'Confidence, teamwork and outdoor discovery on the move.', tone: 'story-3', image: asset('/images/MOUNTAIN HIKING/IMG_8240.webp') },
+  { label: 'Mountain hiking', title: 'Trail learning.', meta: 'Confidence, teamwork and outdoor discovery on the move.', tone: 'story-3', image: asset('/images/MOUNTAIN HIKING/IMG_8242.webp') },
   { label: 'Community', title: 'School life.', meta: 'Daily moments, belonging and authentic togetherness.', tone: 'story-1', image: asset('/images/students/circle.png') },
 ];
 
